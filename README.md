@@ -38,5 +38,19 @@ INNER JOIN runner_orders as r ON c.order_id = r.order_id
 INNER JOIN pizza_names as p  ON p.pizza_id= c.pizza_id
 WHERE pickup_time <>'null'
 GROUP BY p.pizza_name
+```
 
+5thQ.-How many Vegetarian and Meatlovers were ordered by each customer?
+```
+SELECT 
+c.customer_id,
+p.pizza_name,
+COUNT ( p.pizza_name)as pizza_orders
+FROM customer_orders as c
+INNER JOIN runner_orders as r ON c.order_id = r.order_id
+INNER JOIN pizza_names as p  ON p.pizza_id= c.pizza_id
+GROUP BY c.customer_id, p.pizza_name
+```
+
+6thQ.--What was the maximum number of pizzas delivered in a single order?
 ```
