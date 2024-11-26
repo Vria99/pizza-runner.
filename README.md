@@ -54,3 +54,9 @@ GROUP BY c.customer_id, p.pizza_name
 
 6thQ.--What was the maximum number of pizzas delivered in a single order?
 ```
+SELECT order_id, 
+COUNT (order_id) as total_orders
+FROM customer_orders
+GROUP BY order_id 
+ORDER BY total_orders DESC
+LIMIT 1
